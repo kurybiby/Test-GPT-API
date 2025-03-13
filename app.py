@@ -24,9 +24,13 @@ def text_generation():
 
 @app.route('/image_generation', methods = ['GET', 'POST'])
 def image_generation():
-    user_request = request.form.get('user_request')
-    print(generate_image(user_request))
-    return render_template('image_generation.html')
+    image_url = None  
+    if request.method == 'POST':
+        user_request = request.form.get('user_request')
+        if user_request:  
+            image_url = generate_image(user_request) 
+
+    return render_template('image_generation.html', image_url=image_url)
 
 
 if __name__ == '__main__':
