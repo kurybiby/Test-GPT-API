@@ -11,19 +11,19 @@ def main():
     return render_template('main.html')
 
 
-@app.route('/message', methods = ['POST'])
-def answer_user():
+@app.route('/text_generation', methods = ['GET', 'POST'])
+def text_generation():
     user_request = request.form.get('user_request')
     print(generate_message(user_request))
     
-    return render_template('main.html')
+    return render_template('text_generation.html')
 
 
-@app.route('/image', methods = ['POST'])
-def image():
+@app.route('/image_generation', methods = ['GET', 'POST'])
+def image_generation():
     user_request = request.form.get('user_request')
     print(generate_image(user_request))
-    return render_template('main.html')
+    return render_template('image_generation.html')
 
 
 if __name__ == '__main__':

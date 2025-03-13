@@ -3,18 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main page</title>
+    <title>Main Page</title>
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <form action="{{ url_for('answer_user') }}", method="POST">
-        <input name="user_request" type="text" placeholder="Введите запрос...">
-        <button type="submit">Отправить</button>
-    </form>
-
-    <form action="{{ url_for('image') }}", method="POST">
-        <input name="user_request" type="text" placeholder="Введите запрос...">
-        <button type="submit">Отправить</button>
-    </form>
+    <h1>Welcome!</h1>
+    <a href="{{ url_for('text_generation') }}">
+        <button>Генерация текста</button>
+    </a>
+    <a href="{{ url_for('image_generation') }}">
+        <button>Генерация изображений</button>
+    </a>
 </body>
 </html>

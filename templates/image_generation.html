@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Generation</title>
+</head>
+<body>
+    <h1>Генерация изображений</h1>
+    <form action="{{ url_for('image_generation') }}" method="POST">
+        <input name="user_request" type="text" placeholder="Введите запрос...">
+        <button type="submit">Отправить</button>
+    </form>
+    <a href="{{ url_for('main') }}">На главную</a>
+</body>
+</html>
