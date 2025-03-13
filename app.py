@@ -15,6 +15,7 @@ def main():
 def answer_user():
     user_request = request.form.get('user_request')
     print(generate_message(user_request))
+    
     return render_template('main.html')
 
 
