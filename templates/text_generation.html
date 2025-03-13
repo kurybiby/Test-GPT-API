@@ -4,13 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Generation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'text_generation.css') }}">
 </head>
 <body>
-    <h1>Генерация текста</h1>
-    <form action="{{ url_for('text_generation') }}" method="POST">
-        <input name="user_request" type="text" placeholder="Введите запрос...">
-        <button type="submit">Отправить</button>
-    </form>
-    <a href="{{ url_for('main') }}">На главную</a>
+    <div class="chat-container">
+        <h2>Генерация текста</h2>
+
+        <div class="chat-box">
+            {% for message in chat_history %}
+                <div class="message {{ 'user-message' if message.role == 'user' else 'bot-message' }}">
+                    {{ message.text }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <form action="{{ url_for('text_generation') }}" method="POST">
+            <input name="user_request" type="text" placeholder="Введите запрос..." required>
+            <button type="submit">Отправить</button>
+        </form>
+
+        <a href="{{ url_for('main') }}" class="back-link">На главную</a>
+    </div>
 </body>
 </html>

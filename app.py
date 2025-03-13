@@ -5,6 +5,7 @@ from generate_image import generate_image
 
 app = Flask(__name__)
 
+chat_history = []
 
 @app.route('/', methods = ['GET', 'POST'])
 def main():
@@ -14,9 +15,11 @@ def main():
 @app.route('/text_generation', methods = ['GET', 'POST'])
 def text_generation():
     user_request = request.form.get('user_request')
-    print(generate_message(user_request))
-    
-    return render_template('text_generation.html')
+    bot_response = generate_message(user_request)
+    chat_history.append({'role': 'user', 'text': user_request})
+    chat_history.append({'role': 'bot', 'text': bot_response})
+
+    return render_template('text_generation.html', chat_history = chat_history)
 
 
 @app.route('/image_generation', methods = ['GET', 'POST'])
