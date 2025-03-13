@@ -6,6 +6,11 @@
     <title>Main page</title>
 </head>
 <body>
-    
+    <h1>Hello World!</h1>
+    <form action="{{ url_for('answer_user') }}", method="POST">
+        <input name="user_request" type="text" placeholder="Введите запрос...">
+        <button type="submit"></button>
+    </form>
+
 </body>
 </html>

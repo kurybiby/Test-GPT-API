@@ -2,10 +2,11 @@ from g4f import Client
 
 client = Client()
 
-response = client.images.generate(
-    model = 'flux',
-    prompt = 'Anime girl falling from high building and crying',
-    response_format = 'url'
+def generate_image(user_request: str) -> str:
+    response = client.images.generate(
+        model = 'flux',
+        prompt = f'{user_request}',
+        response_format = 'url'
 
-)
-print(response.data[0].url)
+    )
+    return response.data[0].url
