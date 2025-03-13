@@ -1,0 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap');
+body {
+    font-family: 'Sofia Sans Condensed', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+}
